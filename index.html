@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta name="description" content="Ubuntu in Digital Ocean by zestlifia">
+    <meta name="author" content="zestlifia">
+    <title>Zestlifia Ocean</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
+
+    <!-- compiled css output -->
+    <link href="css/ionic.app.css" rel="stylesheet">
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+    <!-- zestlifia -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- home(left sidemenu) - enternal lib -->
+    <script src="lib/pulse/jquery-ui-widget.min.js"></script>
+    <script src="lib/pulse/d3.min.js"></script>
+    <script src="lib/pulse/jke-d3-ecg.min.js"></script>
+    <!-- home(left sidemenu) -->
+    <script src="js/datasource.js"></script>
+    <script src="js/typing.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+
+    <!-- <script src="js/svg.js"></script>  -->
+  </head>
+  <body ng-app="starter">
+    <ion-side-menus ng-cloak>
+      <ion-side-menu-content>
+        <ion-nav-bar class="bar-stable"  align-title="center"  ng-cloak>
+         <ion-nav-buttons side="left"> 
+          <button menu-toggle="left" class="button button-icon button-clear ion-ios-star"></button>
+         </ion-nav-buttons>
+         <ion-nav-back-button></ion-nav-back-button>
+         <ion-nav-buttons side="right"> 
+          <button menu-toggle="right" class="button button-icon button-clear ion-navicon"></button>
+         </ion-nav-buttons>
+        </ion-nav-bar>
+        <ion-nav-view></ion-nav-view>
+      </ion-side-menu-content>
+      <ion-side-menu side="left">
+        <ion-content>
+          Zestlifia
+        </ion-content>
+      </ion-side-menu>
+      <ion-side-menu side="right">
+        <ion-header-bar class="bar-stable"  align-title="center">
+          <h1 class="title">Menu</h1>
+        </ion-header-bar>
+        <ion-content>
+          <ion-list>
+            <ion-item menu-close href="#/home">Home</ion-item>
+            <ion-item menu-close href="#/settings">Settings</ion-item>
+            <ion-item menu-close href="#/tests">Tests</ion-item>
+          </ion-list>
+        </ion-content>
+      </ion-side-menu>
+    </ion-side-menus>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+<ion-view view-title="Zestlifia" ng-controller="HomeCtrl" >
+	<ion-content scroll="false">
+		<div class="typing-panel">
+		    <span id="loading"></span>
+
+		    <div class="typing-message">
+		      <div id="message-area">
+		         <p id="adventureMap"></p>
+		         <p id="submarine"></p>
+		         <p id="sinking"></p>
+		      </div>
+		    </div>
+		</div> <!-- end typing-panel -->
+
+		<!-- rotate Z -->
+		<div class="rotate-panel" ng-click="test()">
+
+		    <svg id="z-svg" class="float-center" version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 567.000000 567.000000"
+		     preserveAspectRatio="xMidYMid meet">
+		        <metadata>
+		        Created by potrace 1.12, written by Peter Selinger 2001-2015
+		        </metadata>
+
+		        <g transform="translate(0.000000,567.000000) scale(0.100000,-0.100000)"
+		        fill="#000000" stroke="none">
+
+		        <path id="z-border" ng-class="{'z-border-showing': isShowing, 'z-border-spin': isShowAnimate}" d="M2424 5240 l-410 -410 -587 0 -587 0 0 -587 0 -587 -416 -416 -415
+		        -416 416 -410 416 -409 -1 -587 0 -588 587 0 587 0 413 -412 413 -412 413 412
+		        413 412 587 0 587 0 0 587 0 588 416 409 415 409 -415 416 -416 417 0 587 0
+		        587 -587 0 -587 0 -411 410 c-226 226 -412 410 -415 410 -3 0 -190 -185 -416
+		        -410z m821 -60 l400 -400 572 0 573 0 0 -572 0 -573 402 -402 403 -403 -403
+		        -403 -402 -402 0 -573 0 -572 -572 0 -573 0 -402 -402 -403 -403 -403 403
+		        -402 402 -573 0 -572 0 0 572 0 573 -402 402 -403 403 403 403 402 402 0 573
+		        0 572 573 0 572 0 400 400 c220 220 402 400 405 400 3 0 185 -180 405 -400z"/>
+		        <path id="z-circle" class="z-circle-Anim" d="M2626 4819 c-369 -39 -752 -199 -1046 -436 -89 -72 -257 -243 -321
+		        -328 -407 -533 -525 -1217 -318 -1850 101 -307 273 -580 510 -810 168 -162
+		        316 -266 521 -365 682 -329 1486 -245 2093 219 85 64 256 232 328 321 583 722
+		        595 1743 28 2485 -64 85 -232 256 -321 328 -411 332 -950 491 -1474 436z m405
+		        -49 c924 -94 1647 -815 1748 -1742 39 -351 -28 -724 -188 -1053 -427 -875
+		        -1441 -1302 -2363 -995 -1023 341 -1577 1443 -1237 2465 287 862 1140 1416
+		        2040 1325z"/>
+				<path id="z-letter" ng-class="{'z-letter-showing': isShowing, 'z-letter-pulse': isShowAnimate}" d="M1600 4099 c0 -6 -31 -211 -70 -456 -38 -245 -70 -447 -70 -449 0 -2
+		        96 -4 214 -4 196 0 215 2 220 18 3 9 19 106 35 215 33 209 44 249 82 284 54
+		        49 37 48 829 50 l745 3 -30 -28 c-17 -15 -511 -436 -1098 -936 l-1067 -908 0
+		        -169 0 -169 1424 0 1424 0 6 27 c3 16 33 215 66 443 33 228 63 425 65 438 l5
+		        22 -209 0 -210 0 -7 -37 c-34 -196 -89 -424 -114 -474 -38 -73 14 -69 -956
+		        -67 l-869 3 1118 954 1117 955 0 148 0 148 -1325 0 c-953 0 -1325 -3 -1325
+		        -11z"/>
+		        </g>
+		    </svg>
+		    <!-- circle -->
+		    <div id="circleDiv" class="float-center" ng-class="{'hideCircleDiv': isHideCircle, 'popShow': isPopCircle}">
+		        <img id="smallDottedCircle" src="img/dottedCircle.svg" class="float-center">
+		        <img id="dottedCircle" src="img/dottedCircle.svg" class="float-center">
+		        <img id="ringLong" src="img/ringLong.png" class="float-center">
+		        <img id="ringPiece" src="img/ringPiece.png" class="float-center">
+		    </div>
+
+		</div><!-- end rotate z-->
+
+	</ion-content>
+	<!-- footer -->
+	<ion-footer-bar class="bar-dark" style="border:none;">
+		<div class="jke-ecgChart"></div>
+	</ion-footer-bar>
+</ion-view>
