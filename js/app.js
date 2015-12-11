@@ -63,25 +63,44 @@ app.controller('HomeCtrl', function($scope, $timeout) {
 
 });
 app.controller('LogbookCtrl',function($scope, $http) {
-    $scope.books = [];
-    $http.get('https://www.reddit.com/r/Android/new/.json')
-      .success(function(response) {
-      angular.forEach(response.data.children, function(child) {
-          var story = child.data ;
-          console.log(story.thumbnail);
-          if(!story.thumbnail || story.thumbnail === 'self' || story.thumbnail == 'default') {
-            story.thumbnail = 'http://www.redditstatic.com/icon.png' ;
-          }
-          $scope.books.push(child.data);
-      });
-    });
+    // $scope.books = [];
+    // $http.get('https://www.reddit.com/r/Android/new/.json')
+    //   .success(function(response) {
+    //   angular.forEach(response.data.children, function(child) {
+    //       var story = child.data ;
+    //       console.log(story.thumbnail);
+    //       if(!story.thumbnail || story.thumbnail === 'self' || story.thumbnail == 'default') {
+    //         story.thumbnail = 'http://www.redditstatic.com/icon.png' ;
+    //       }
+    //       $scope.books.push(child.data);
+    //   });
+    // });
 });
 app.controller('BookCtrl', function($scope, $state) {
-  console.log($state.params.bookId);
-  $scope.bookId = $state.params.bookId;
-  // var bookId = '1234';
-  // alert(bookId);
-  // $scope.bookId = bookId;
+  
+  // console.log($state.params.bookId);
+  // $scope.bookId = $state.params.bookId;
+
+  // $rootScope.$on('$includeContentLoaded', function() {
+  //     alert("included");
+      // initialize gist on new elements
+      // angular.element(document).ready(function() {
+      //     if (typeof(angular.element(document).gist) === 'function') {
+      //         angular.element('[data-gist-id]').gist();
+      //     }
+      // });
+  // });
+    // $scope.$on('$ionicView.enter', function () {
+    //     alert("loaded");
+    // });
+    // $scope.$on('$ionicView.unloaded', function (viewInfo, state) {
+    //     console.log('CTRL - $ionicView.unloaded', viewInfo, state);
+    // });
+    angular.element(document).ready(function() {
+        if (typeof(angular.element(document).gist) === 'function') {
+            angular.element('[data-gist-id]').gist();
+        }
+    });
 });
 
 app.run(function($ionicPlatform) {
