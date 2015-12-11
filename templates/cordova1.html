@@ -1,0 +1,150 @@
+<ion-view view-title="Book">
+	<ion-content ng-controller="BookCtrl">
+		<article>
+		<!-- 	<header>
+				<p>My header - {{bookId}} - 2015-12-09 </p>
+			</header> -->
+			<section class="titleSection">
+				<img src="https://d13yacurqjgara.cloudfront.net/users/148585/screenshots/1914271/untitled-2v2.gif">
+				<div>
+					<h1>Find the way to access android native API in Ionic</h1>
+					<h4>Install Android Studio</h4>
+				</div>
+			</section>
+			</br>
+			<section class="contentSection">
+				<h3>Can we create our won custom android API, and access them with Cordova?</h3>
+				<p><a href="https://cordova.apache.org/docs/en/latest/guide/overview/">Cordova document overview</a></p>
+				<blockquote>
+					a mobile developer interested in mixing native application components with a WebView (special browser window) that can <em>access device-level APIs</em>, or if you want to develop a plugin interface between native and WebView components.
+				</blockquote>
+				<blockquote>
+					<em>A plugin interface </em>is available for Cordova and native components to communicate with each other. This enables you to invoke native code from JavaScript. Ideally, the JavaScript APIs to that native code are consistent across multiple device platforms. As of version 3.0, plugins provide bindings to standard device APIs. Third-party plugins provide additional bindings to features not necessarily available on all platforms. You can find these third-party plugins in the plugin registry and use them in your application.<em> You can also develop your own plugins</em>, as described in the <a href="https://cordova.apache.org/docs/en/latest/guide/overview/">Plugin Developement Guide</a>. Plugins may be necessary, for example, to communicate between Cordova and custom native components.
+				</blockquote>
+				<h3>Development Path</h3>
+				<p>
+					<ul>
+						<li>Cross-platform (CLI) workflow</li>
+						<li>Platform-centered workflow</li>
+					</ul>
+				</p>
+				<blockquote>
+					<em>Platform-centered workflow</em>: Use this workflow if you want to focus on building an app for a single platform and need to be able to <em>modify it at a lower level</em>. You need to use this approach, for example, if you want your app to mix custom native components with web-based Cordova components, as discussed in Embedding WebViews. As a rule of thumb, use this workflow if you need to modify the project within the SDK. This workflow relies on a set of lower-level shell scripts that are tailored for each supported platform, and a separate Plugman utility that allows you to apply plugins. While you can use this workflow to build cross-platform apps, it is generally more difficult because the lack of a higher-level tool means separate build cycles and plugin modifications for each platform. Still, this workflow allows you greater access to development options provided by each SDK, and is essential for complex hybrid apps. See the various <a href="https://cordova.apache.org/docs/en/latest/guide/platforms/index.html">Platform Guides</a> for details on each platform's available shell utilities.
+				</blockquote>
+				<p>
+					For create our custom android API, we choose the more hard way - <b>Platform-centered workflow</b>. Following cordova document, we read <a href="https://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html">Android Platform Guide</a>.
+				</p>
+				<blockquote>
+					Install the Android Stand-alone SDK Tools or Android Studio. Procceed with Android Studio <em>if you plan developing new Cordova for Android plugins or using native tools to run and debug Android platform</em>. Otherwise, Android Stand-alone SDK Tools are enough to build and deploy Android application.
+				</blockquote>
+				<h3>Install the <a href="http://developer.android.com/intl/zh-tw/sdk/installing/index.html?pkg=studio">Android Studio</a></h3>
+				<p>
+					Actually, I alreay install android sdk with <a href="http://caskroom.io/">homebrew-cask</a>. <a href="http://brew.sh/">Homebrew</a> installation will automatically set android/adb command global, I don't have to export android/adb path.
+				</p>
+				<figure>
+					<img src="https://dl.dropboxusercontent.com/u/47510080/zestlifia/logbook/cordova/homebrewInstallPath1.png" alt="homebrewInstallPath">
+				</figure>
+				<p>
+					The last time I spend a lot of time to install android sdk, so I decide to let android studio install android sdk itself.
+				</p>
+				<figure>
+					<img src="https://dl.dropboxusercontent.com/u/47510080/zestlifia/logbook/cordova/androidStudio1.png">
+				</figure>
+				<figure>
+					<img src="https://dl.dropboxusercontent.com/u/47510080/zestlifia/logbook/cordova/androidStudio2.png">
+				</figure>
+				<figure>
+					<img src="https://dl.dropboxusercontent.com/u/47510080/zestlifia/logbook/cordova/androidStudio3.png">
+				</figure>
+				<p>
+					Compare the android installation folder with homebrew and android studio.
+				</p>
+				<p>
+					Android Studio, API 23 , /Users/jackho/Library/Android
+				</p>
+				<figure>
+					<img src="https://dl.dropboxusercontent.com/u/47510080/zestlifia/logbook/cordova/androidSDK1.png">
+				</figure>
+				<p>
+					Homebrew, API 24 , /usr/local/Cellar/android-sdk/24.4/bin/android
+				</p>
+				<figure>
+					<img src="https://dl.dropboxusercontent.com/u/47510080/zestlifia/logbook/cordova/androidSDK2.png">
+				</figure>
+				<p>
+					There is no reason to build android with different android sdk version, so I change terminal command android/adb path .
+				</p>
+				<p>Original</p>
+				<figure>
+					<img src="https://dl.dropboxusercontent.com/u/47510080/zestlifia/logbook/cordova/homebrewInstallPath2.png">
+				</figure>
+				<p>ln -s</p>
+				<figure>
+					<img src="https://dl.dropboxusercontent.com/u/47510080/zestlifia/logbook/cordova/homebrewInstallPath3.png">
+				</figure>
+				<h3>Build & Run</h3>
+				<p>
+					Android Studio -> Run -> Edit Configuration and you just press run button . You don't specify a target device, adb will automatically detect device, and if adb can't get one then it will start android emulator. There is another option - <a href="https://www.genymotion.com/">Genymotion</a>
+				</p>
+				<figure>
+					<img src="https://dl.dropboxusercontent.com/u/47510080/zestlifia/logbook/cordova/editConfiguration.png">
+				</figure>
+				<h3><a href="http://www.sitepoint.com/improved-android-emulation-genymotion/">Run on Genymotion</a></h3>
+				<p>
+					In Mac , Android Studio -> Preference -> Plugins
+				</p>
+				<figure>
+					<img src="https://dl.dropboxusercontent.com/u/47510080/zestlifia/logbook/cordova/genymotion.png">
+				</figure>
+				<p>
+					Like before, I installed genymotion with homebrew-cask . The path is /opt/homebrew-cask/Caskroom/genymotion
+				</p>
+				<figure>
+					<img src="https://dl.dropboxusercontent.com/u/47510080/zestlifia/logbook/cordova/genymotion2.png">
+				</figure>
+				<p>
+					Run it !
+				</p>
+				<figure>
+					<img src="https://dl.dropboxusercontent.com/u/47510080/zestlifia/logbook/cordova/genymotion3.png">
+				</figure>
+				<h3>Run on my Note3</h3>
+				<p>
+					Use Android Debug Bridge(<a href="http://developer.android.com/intl/zh-tw/tools/help/adb.html">adb</a>) to detect whether phone is 	connected or not. There is something strange that the detected device showing <b>unauthorized</b>. I close Note3 developer mode and open it again. Then it's connected successfully .
+				</p>
+				<figure>
+					<img src="https://dl.dropboxusercontent.com/u/47510080/zestlifia/logbook/cordova/note3-1.png">
+				</figure>
+				<p>
+					Choose USB Device.
+				</p>
+				<figure>
+					<img src="https://dl.dropboxusercontent.com/u/47510080/zestlifia/logbook/cordova/note3-3.png">
+				</figure>
+				<p>
+					Run.
+				</p>
+				<figure>
+					<img src="https://dl.dropboxusercontent.com/u/47510080/zestlifia/logbook/cordova/note3-4.png">
+				</figure>
+				<h3>How to stop - Android Device Monitor</h3>
+				<figure>
+					<img src="https://dl.dropboxusercontent.com/u/47510080/zestlifia/logbook/cordova/stop.png">
+				</figure>
+				<p>Find the app and press red stop button.</p>
+				<figure>
+					<img src="https://dl.dropboxusercontent.com/u/47510080/zestlifia/logbook/cordova/stop2.png">
+				</figure>
+				<h3>Conclusion</h3>
+				<p>
+					Android Studio is awesome tool to develope android application. It's fast then other IDE ex: Eclipse. With plugin - Genymotion, you can emulate your app fast. Logcat, monitor, UI preview... etc... and I found a cool stuff <a href="http://jimulabs.com/">Mirror</a> about Hot Deploy! But I have not test it yet.
+				</p>
+			</section>
+			<footer>
+			  <div class="copyrights">
+			      Copyrights &copy; 2015 Zestlifia. All Rights Reserved.
+			  </div>
+			</footer>
+		</article>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,86 @@
+<ion-view view-title="Book">
+	<ion-content ng-controller="BookCtrl">
+		<article>
+			<section class="titleSection">
+				<img src="https://dl.dropboxusercontent.com/u/47510080/zestlifia/logbook/cordova2/Screen%20Shot%202015-12-10%20at%2011.47.21%20AM.png">
+				<div>
+					<h1>Find the way to access android native API in Ionic</h1>
+					<h4>ngCordova</h4>
+				</div>
+			</section>
+			</br>
+			<section class="contentSection">
+				<h3>In the last article - Install Android Studio, we set up the development enviroment. and we know that we can access android API by Cordova. But how?</h3>
+				<code data-gist-id="9c62094de9701f5ba648" data-gist-file="ionicCommand.sh"></code>
+				</br>
+				<h3>Livereload on Genymotion</h3>
+				<figure>
+					<img src="https://dl.dropboxusercontent.com/u/47510080/zestlifia/logbook/cordova2/Screen%20Shot%202015-12-10%20at%2010.24.03%20AM.png">
+				<figure>
+				<p>add paramter -device and you will see the statements like this: <span style="color:yellow">The port true was taken on the host 192.168.26.118 - using port 1024 instead</span>, then the livereload is fine</p>
+				</br>
+				<h3><a href="https://github.com/apache/cordova-plugin-whitelist">cordova-plugin-whitelist</a></h3>
+				<p>The cordova-plugin-<a href="https://en.wikipedia.org/wiki/Whitelist">whitelist</a> is one of the ionic default cordova plugin ; With it, we need to add meta tag to solve the Content-Security-Policy problem.</p>
+				<code data-gist-id="42a1b1540a8927fe33e9"></code>
+				<figure>
+					<img src="https://dl.dropboxusercontent.com/u/47510080/zestlifia/logbook/cordova2/Screen%20Shot%202015-12-11%20at%203.30.53%20PM.png">
+				</figure>
+				</br>
+				<h3>ngCordova <a href="http://ngcordova.com/docs/install/"></a>install</h3>
+				<p>ngCordova provide angular way to inject service in your code and make some convenient function for us. </p>
+				<code data-gist-id="9c62094de9701f5ba648" data-gist-file="installNgCordova.sh"></code>
+				<blockquote>
+					Include <em>ng-cordova.js</em> or <em>ng-cordova.min.js</em> in your <em>index.html</em> file before <em>cordova.js</em> and afteryour AngularJS / Ionic file (since ngCordova depends on AngularJS).
+				</blockquote>
+				</br>
+				<h3>cordova-plugin-device</h3>
+				<p>This is the most simple way to test cordova plugin and make sure you can access device information.</p>
+				<figure>
+					<img src="https://dl.dropboxusercontent.com/u/47510080/zestlifia/logbook/cordova2/Screen%20Shot%202015-12-10%20at%2011.46.25%20AM.png">
+				</figure>
+				<p>Notice <b>$scope.$apply()</b>. The concept is that angular have it's own way to manipulate the variables, using $apply() to put cordova variables angular scope($watch list). The is another post about <a href="http://angular-tips.com/blog/2013/08/watch-how-the-apply-runs-a-digest/">$digest</a>.</p>
+				<p>On Genymotion</p>
+				<figure>
+					<img src="https://dl.dropboxusercontent.com/u/47510080/zestlifia/logbook/cordova2/Screen%20Shot%202015-12-10%20at%2011.47.21%20AM.png">
+				</figure>
+				<div class="sourceCodeLinkRight">
+					<a href="https://github.com/jackmew/zestlifia-cordova-device.git">source code</a>
+				</div>
+				</br>
+				<h3><a href="http://ngcordova.com/docs/plugins/camera/">cordova-plugin-camera</a></h3>
+				<p>We need to add camera plugin before we use it.</p>
+				<code data-gist-id="9c62094de9701f5ba648" data-gist-file="addCamera.sh"></code>
+				<code data-gist-id="4e10a4ad88b036b7189d"></code>
+				<figure>
+					<img src="https://dl.dropboxusercontent.com/u/47510080/zestlifia/logbook/cordova2/ngCamera.png">
+				</figure>
+				<div class="sourceCodeLinkRight">
+					<a href="https://github.com/jackmew/zestlifia-cordova-geolocation.git">source code</a>
+				</div>
+				<h3><a href="http://ngcordova.com/docs/plugins/geolocation/">cordova-plugin-geolocation</a> with <a href="https://developers.google.com/maps/documentation/javascript/tutorial">google map</a></h3>
+				<code data-gist-id="9c62094de9701f5ba648" data-gist-file="addGeo.sh"></code>
+				<code data-gist-id="cf556716a309cf56098a"></code>
+				<p>Emulating on Genymotion with geolocation, we need check developer settings:</p>
+				<p>1. Allow mock locations</p>
+				<figure>
+					<img src="https://dl.dropboxusercontent.com/u/47510080/zestlifia/logbook/cordova2/Screen%20Shot%202015-12-10%20at%203.23.31%20PM.png">
+				</figure>
+				<p>2. Set GPS on</p>
+				<figure>
+					<img src="https://dl.dropboxusercontent.com/u/47510080/zestlifia/logbook/cordova2/Screen%20Shot%202015-12-10%20at%203.37.48%20PM.png">
+				</figure>
+				<h3>Conclusion</h3>
+				<p>The last year I have develope a hyprid android application with jQuery mobile. Yes, jQuery Mobile UI is suitable for mobile device, but before I dig into it's features and try to use cordova, I need to config them together by myself. It's a hard and time consuming work. 
+				With Ionic, I just learn how to enter ionic command! You want cordova camera plugin? <b>ionic plugin add cordova-plugin-camera</b>. You want sass ? <b>ionic setup sass</b>. You want fast development work flow ? <b>ionic serve</b> ! Even on emulator or your devices: <b>ionic run android -device -l</b>. AMAZING!!!</p>
+				<p>Today I got an email from The Official Ionic - Announcing Ionic 1.2 . There is the <a href="http://blog.ionic.io/announcing-ionic-1-2/?utm_content=educational&utm_campaign=2015-12-10&utm_source=email-sendgrid&utm_term=9885414&utm_medium=480494">link</a>.</p>
+
+			</section>
+			<footer>
+			  <div class="copyrights">
+			      Copyrights &copy; 2015 Zestlifia. All Rights Reserved.
+			  </div>
+			</footer>
+		</article>
+
+	</ion-content>
+</ion-view>

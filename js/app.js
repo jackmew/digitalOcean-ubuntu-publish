@@ -1,4 +1,4 @@
-var app = angular.module('starter', ['ionic']);
+var app = angular.module('starter', ['ionic','gist-embed']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider.state('home', {
@@ -16,6 +16,22 @@ app.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider.state('tests', {
     url: '/tests',
     templateUrl: 'templates/tests.html',
+  });
+  $stateProvider.state('logbook', {
+    url: '/logbook',
+    templateUrl: 'templates/logbook.html'
+  });
+  // $stateProvider.state('book', {
+  //   url: '/book/:bookId',
+  //   templateUrl: 'templates/book.html'
+  // });
+  $stateProvider.state('cordova1', {
+    url: '/book/cordova1',
+    templateUrl: 'templates/cordova1.html'
+  });
+  $stateProvider.state('cordova2', {
+    url: '/book/cordova2',
+    templateUrl: 'templates/cordova2.html'
   });
   $urlRouterProvider.otherwise('/home');
 });
@@ -46,8 +62,26 @@ app.controller('HomeCtrl', function($scope, $timeout) {
   }, 4000);
 
 });
-app.controller('TestCtrl',function($scope) {
-
+app.controller('LogbookCtrl',function($scope, $http) {
+    $scope.books = [];
+    $http.get('https://www.reddit.com/r/Android/new/.json')
+      .success(function(response) {
+      angular.forEach(response.data.children, function(child) {
+          var story = child.data ;
+          console.log(story.thumbnail);
+          if(!story.thumbnail || story.thumbnail === 'self' || story.thumbnail == 'default') {
+            story.thumbnail = 'http://www.redditstatic.com/icon.png' ;
+          }
+          $scope.books.push(child.data);
+      });
+    });
+});
+app.controller('BookCtrl', function($scope, $state) {
+  console.log($state.params.bookId);
+  $scope.bookId = $state.params.bookId;
+  // var bookId = '1234';
+  // alert(bookId);
+  // $scope.bookId = bookId;
 });
 
 app.run(function($ionicPlatform) {

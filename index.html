@@ -5,6 +5,7 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <meta name="description" content="Ubuntu in Digital Ocean by zestlifia">
     <meta name="author" content="zestlifia">
+   <!--  <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'"> -->
     <title>Zestlifia Ocean</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
 
@@ -25,7 +26,8 @@
     <!-- home(left sidemenu) -->
     <script src="js/datasource.js"></script>
     <script src="js/typing.js"></script>
-
+    <!-- logbook -->
+    <script src="bower_components/angular-gist-embed/dist/angular-gist-embed.min.js"></script>
     <!-- your app's js -->
     <script src="js/app.js"></script>
 
@@ -57,8 +59,11 @@
         <ion-content>
           <ion-list>
             <ion-item menu-close href="#/home">Home</ion-item>
+            <!--
             <ion-item menu-close href="#/settings">Settings</ion-item>
             <ion-item menu-close href="#/tests">Tests</ion-item>
+            -->
+            <ion-item menu-close href="#/logbook">Logbook</ion-item>
           </ion-list>
         </ion-content>
       </ion-side-menu>
